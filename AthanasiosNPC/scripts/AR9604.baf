@@ -1,0 +1,11 @@
+IF
+	InParty("C0ATHAN")
+	Global("C0AthanasiosTL1","MYAREA",0)
+	Global("HOW_COMPLETED","GLOBAL",1)
+	CombatCounter(0)
+THEN
+RESPONSE #100
+	SetGlobal("C0AthanasiosTL1","MYAREA",1)
+	Wait(2)
+	DisplayStringHead("C0ATHAN",~Ha ha ha HAA! Well fought, mate! Our name will be immortalized in history, and all heroes will drink to our names for generations!~)
+END

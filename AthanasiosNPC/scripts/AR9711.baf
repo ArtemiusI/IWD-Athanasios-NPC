@@ -1,0 +1,11 @@
+IF
+	InParty("C0ATHAN")
+	Global("C0AthanasiosTL1","MYAREA",0)
+	GlobalGT("Master_Quest","GLOBAL",3)
+	CombatCounter(0)
+THEN
+RESPONSE #100
+	SetGlobal("C0AthanasiosTL1","MYAREA",1)
+	Wait(2)
+	DisplayStringHead("C0ATHAN",~Augh... I've little patience fer riddles, mate. You just handle the thinkin' and point me where ye need me weapon swingin'.~)
+END

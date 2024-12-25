@@ -1,0 +1,119 @@
+//AUDIO
+
+LAF HANDLE_AUDIO END
+
+///////////////
+// CREATURES //
+///////////////
+
+COPY ~%MOD_FOLDER%/creatures/C0ATHAN.cre~ ~override~
+  SAY NAME1 ~Athanasios~
+  SAY NAME2 ~Athanasios~
+  WRITE_ASCII SCRIPT_OVERRIDE ~C0ATHAN~ // override
+  WRITE_ASCII DEATHVAR ~C0ATHAN~ // death variable
+  WRITE_ASCII DIALOG ~C0ATHAN~ // dialogue
+  WRITE_ASCII 0X34 ~C0ATHANM~ #8   //small portrait
+  WRITE_ASCII 0x3c ~C0ATHANL~ #8   //medium portrait
+  SAY INITIAL_MEETING ~~
+  SAY BIO ~When asked about his past, ATHANASIOS LEADENFOOT barely manages to speak a few coherent sentences among his rough, slurred ramblings. Hailing from Targos, the second-largest of the Ten Towns, the drunken, slightly aged halfling has served the church of Tempus for the majority of his years, which according to him is the highest life one could ask for: eagerly awaiting the next fight, revelling in the prospect of it being the last, and celebrating each victory, for one lives to fight another day... though in his case, perhaps the latter is taken to an extreme. Despite your doubts, however, his drunkenness appears to be more than matched by his capability in battle... assuming he swings his weapon in the right direction.~
+  SAY MORALE ~~
+  SAY HAPPY ~Aye, this be the place fer me. Drinks, hikin', an' plenty of heads to crack.~ [C0ATH001]
+  SAY UNHAPPY_ANNOYED ~This ain't the drinkin' crew I've been dreamin' for.~ [C0ATH002]
+  SAY UNHAPPY_SERIOUS ~Ye're one step away from fallin' on yer sword... mate.~ [C0ATH003]
+  SAY UNHAPPY_BREAKING ~I'd spit on ye if I didn't respect me spittle more. Tempus curse ye!~ [C0ATH004]
+  SAY LEADER ~As leader, I reserve the right ta get drunk as I please.~ [C0ATH005]
+  SAY TIRED ~Throat's drier than the Anauroch. Time fer a break... and a drink.~ [C0ATH006]
+  SAY BORED ~I'm 'bout to bloody piss meself. If ya want to sit around, let's do it where there be drinks!~ [C0ATH007]
+  SAY BATTLE_CRY1 ~For blood and wine!~ [C0ATH008]
+  SAY BATTLE_CRY2 ~Tempus smiles on the fearless!~ [C0ATH009]
+  SAY BATTLE_CRY3 ~I've got a hunk o' metal with your name on it!~ [C0ATH010]
+  SAY BATTLE_CRY4 ~Attaaaaaack!~ [C0ATH011]
+  SAY BATTLE_CRY5 ~Ha! Finally time fer some action!~ [C0ATH012]
+  SAY DAMAGE ~Agh!~ [C0ATH013]
+  SAY DYING ~One... last... drink!~ [C0ATH014]
+  SAY HURT ~I'm bleedin' all over. Gimme a hand here!~ [C0ATH015]
+  SAY AREA_FOREST ~Not much fer the trees. 'Cept pissin' on 'em.~ [C0ATH016]
+  SAY AREA_CITY ~Where's the nearest tavern, eh?~ [C0ATH017]
+  SAY AREA_DUNGEON ~You never know when ya might find a century-old stash 'round these parts.~ [C0ATH018]
+  SAY AREA_DAY ~Uh... too bright. Ain't good for the head after a night of drinkin'.~ [C0ATH019]
+  SAY AREA_NIGHT ~Nights like these, we at the battle-halls be drinkin' till we vomit an' beat each other with our fists. Where's that excitement, eh?~ [C0ATH020]
+  SAY SELECT_COMMON1 ~Oi, mate?~ [C0ATH021]
+  SAY SELECT_COMMON2 ~Not so loud, mate. Head hurts.~ [C0ATH022]
+  SAY SELECT_COMMON3 ~You called, mate?~ [C0ATH023]
+  SAY SELECT_COMMON4 ~Whose head needs tenderizin'?~ [C0ATH024]
+  SAY SELECT_COMMON5 ~Yeah, what now?~ [C0ATH025]
+  SAY SELECT_COMMON6 ~If there's a fight, I'm in.~ [C0ATH026]
+  SAY SELECT_ACTION1 ~Alright alright, I got the message.~ [C0ATH027]
+  SAY SELECT_ACTION2 ~How 'bout a drink later, eh?~ [C0ATH028]
+  SAY SELECT_ACTION3 ~Done, mate.~ [C0ATH029]
+  SAY SELECT_ACTION4 ~Mmm... spiced ale... eh? Yeah, I hear ya.~ [C0ATH030]
+  SAY SELECT_ACTION5 ~Am I seein' two of ye, mate?~ [C0ATH031]
+  SAY SELECT_ACTION6 ~Mate, ye're more humdrum than Everard.~ [C0ATH032]
+  SAY SELECT_ACTION7 ~You lookin' fer a black eye there, mate?~ [C0ATH033]
+  SAY CRITICAL_HIT ~Ha ha! Another 'un!~ [C0ATH034]
+  SAY CRITICAL_MISS ~Not. The drinkin'. That done It.~ [C0ATH038]
+  SAY TARGET_IMMUNE ~Bah, this weapon is more useless than me grandpappy's head!~ [C0ATH036]
+  SAY INVENTORY_FULL ~Do I look as big as a mule mate? That ain't gonna fit 'ere.~ [C0ATH037]
+  SAY SPELL_DISRUPTED ~For the record that was *not* the drinkin' that done it.~ [C0ATH035]
+
+APPEND ~pdialog.2da~ ~C0ATHAN     C0ATHANP           C0ATHANJ          C0ATHAND       C0ATHANP           C0ATHANJ              C0ATHAND              C0ATHAN~
+UNLESS ~C0ATHAN~
+
+APPEND ~interdia.2da~ ~C0ATHAN BC0ATHAN BC0ATHAN~
+  UNLESS ~C0ATHAN~
+
+APPEND ~STATE.IDS~ // adds custom IsValidForPartyDialogue state
+  ~0x80101FEF CD_STATE_NOTVALID~
+  UNLESS ~CD_STATE_NOTVALID~
+  
+/////////////
+//DIALOGUES//
+/////////////
+
+COMPILE ~%MOD_FOLDER%/DIALOGUE/C0ATHAN.D~
+		~%MOD_FOLDER%/DIALOGUE/C0ATHANJ.D~
+
+///////////
+//SCRIPTS//
+///////////
+
+ACTION_FOR_EACH area_scripts IN 1001 1006 1100 3001 3501 3600 4005 5101 7004 8012 8013 9400 9500 9502 9604 9711 9800 BEGIN
+EXTEND_TOP ~AR%area_scripts%.BCS~ ~%MOD_FOLDER%/SCRIPTS/AR%area_scripts%.BAF~
+END
+
+COMPILE ~%MOD_FOLDER%/SCRIPTS/C0ATHAN.BAF~
+
+/////////
+//ITEMS//
+/////////
+
+COPY_EXISTING ~ohtmps1.spl~ ~override~
+WRITE_SHORT 0x1C 4
+
+COPY ~%MOD_FOLDER%/items/C0ATSHLD.itm~ ~override~
+  LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 319
+	  target = 1
+	  timing = 2
+	  parameter2 = 11
+	  power = 1
+	  special = RESOLVE_STR_REF (~Athanasios~)
+	STR_VAR
+	  resource = C0ATHAN
+END
+SAY NAME1 ~Small Shield~
+SAY NAME2 ~Aegis of Conquest~
+SAY DESC ~A small shield is usually round and is carried on the forearm, gripped with the shield hand. Its light weight compared to a medium shield permits the user to carry other items in that hand, although <PRO_HESHE> cannot wield or carry another weapon. This particular shield, though seemingly like any other of its kind save for the symbol of Tempus emblazoned upon it, has been carried by the priest Athanasios long enough to have been imparted with some of his god's favor.
+
+STATISTICS:
+
+Equipped abilities:
+– Bless
+– Armor Class: +1
+– No protection against missile attacks
+
+Requires:
+ 4 Strength
+
+Weight: 3~

@@ -1,0 +1,11 @@
+IF
+	InParty("C0ATHAN")
+	Global("C0AthanasiosTL1","MYAREA",0)
+	TriggerOverride("C0ATHAN",See("Sled"))
+	CombatCounter(0)
+THEN
+RESPONSE #100
+	SetGlobal("C0AthanasiosTL1","MYAREA",1)
+	Wait(2)
+	DisplayStringHead("C0ATHAN",~Bad way to go. Hard t'even tell how long they've been dead, frozen like they are.~)
+END

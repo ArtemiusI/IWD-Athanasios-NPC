@@ -1,0 +1,9 @@
+IF
+	InParty("C0ATHAN")
+	Global("C0AthanasiosTL1","MYAREA",0)
+THEN
+RESPONSE #100
+	SetGlobal("C0AthanasiosTL1","MYAREA",1)
+	Wait(3)
+	DisplayStringHead("C0ATHAN",~By th' Foehammmer... the evil mood in here be like a miasma, mate.~)
+END

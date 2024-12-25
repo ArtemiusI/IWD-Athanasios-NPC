@@ -1,0 +1,11 @@
+IF
+	InParty("C0ATHAN")
+	Global("C0AthanasiosTL1","MYAREA",0)
+	!Global("OPENED_HIDE","MYAREA",0)
+	CombatCounter(0)
+THEN
+RESPONSE #100
+	SetGlobal("C0AthanasiosTL1","MYAREA",1)
+	Wait(2)
+	DisplayStringHead("C0ATHAN",~*buuurp* Finally, mate. I was right about to piss meself with all the waitin' and walkin'.~)
+END

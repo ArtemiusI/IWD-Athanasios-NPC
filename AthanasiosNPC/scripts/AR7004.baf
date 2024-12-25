@@ -1,0 +1,11 @@
+IF
+	InParty("C0ATHAN")
+	Global("C0AthanasiosTL1","MYAREA",0)
+	Global("MAP_GROUP_1_HOSTILE","MYAREA",1)
+	CombatCounter(0)
+THEN
+RESPONSE #100
+	SetGlobal("C0AthanasiosTL1","MYAREA",1)
+	Wait(3)
+	DisplayStringHead("C0ATHAN",~Har! Now this is th' way it should be! Have at ye, giants!~)
+END

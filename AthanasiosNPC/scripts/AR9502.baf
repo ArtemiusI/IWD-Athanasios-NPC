@@ -1,0 +1,11 @@
+IF
+	InParty("C0ATHAN")
+	Global("C0AthanasiosTL1","MYAREA",0)
+	Global("SCANMTR7_TRIGGERED","GLOBAL",1)
+	CombatCounter(0)
+THEN
+RESPONSE #100
+	SetGlobal("C0AthanasiosTL1","MYAREA",1)
+	Wait(2)
+	DisplayStringHead("C0ATHAN",~There be that face again... the chills I'm gettin' ain't just this accursed cold no more, mate.~)
+END

@@ -1,0 +1,10 @@
+IF
+	InParty("C0ATHAN")
+	TriggerOverride("C0ATHAN",Range("EVERARD",10))
+	Global("C0AthanasiosTL1","MYAREA",0)
+THEN
+RESPONSE #100
+	SetGlobal("C0AthanasiosTL1","MYAREA",1)
+	Wait(2)
+	DisplayStringHead("C0ATHAN",~Aye, now this is the place to be! Drinks for all, I say!~)
+END

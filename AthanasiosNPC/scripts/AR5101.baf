@@ -1,0 +1,11 @@
+IF
+	InParty("C0ATHAN")
+	AreaCheck("AR5101")
+	Global("C0AthanasiosTL1","MYAREA",0)
+	CombatCounter(0)
+THEN
+RESPONSE #100
+	SetGlobal("C0AthanasiosTL1","MYAREA",1)
+	Wait(3)
+	DisplayStringHead("C0ATHAN",~This ain't the result of me drinkin', is it mate? Ye all seein' this? ...Good.~)
+END

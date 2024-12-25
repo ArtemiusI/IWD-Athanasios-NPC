@@ -1,0 +1,11 @@
+IF
+	InParty("C0ATHAN")
+	TriggerOverride("C0ATHAN",See("Trigger Point 5"))
+	CombatCounter(0)
+	Global("C0AthanasiosTL1","MYAREA",0)
+THEN
+RESPONSE #100
+	SetGlobal("C0AthanasiosTL1","MYAREA",1)
+	Wait(2)
+	DisplayStringHead("C0ATHAN",~Don't think I've seen a statue like this in any temple I recall.~)
+END

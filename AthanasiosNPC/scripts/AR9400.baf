@@ -1,0 +1,10 @@
+IF
+	InParty("C0ATHAN")
+	Global("C0AthanasiosTL1","MYAREA",0)
+	CombatCounter(0)
+THEN
+RESPONSE #100
+	SetGlobal("C0AthanasiosTL1","MYAREA",1)
+	Wait(4)
+	DisplayStringHead("C0ATHAN",~These be honored warriors, once... whatever drove them to rise must have insulted 'em greatly.~)
+END

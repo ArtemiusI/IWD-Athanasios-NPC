@@ -1,0 +1,17 @@
+IF
+	InParty("C0ATHAN")
+	TriggerOverride("C0ATHAN",See("Trigger Point 3"))
+	OR(2)
+	Global("C0NPCInterjectTimer","MYAREA",0)
+	!RealGlobalTimerExpired("C0NPCInterjectTimer","MYAREA")
+	CombatCounter(0)
+	Switch("C0AthanasiosTL1","MYAREA")
+THEN
+RESPONSE #0
+	SetGlobal("C0AthanasiosTL1","MYAREA",1)
+	RealSetGlobalTimer("C0NPCInterjectTimer","MYAREA",2)
+RESPONSE #1
+	SetGlobal("C0AthanasiosTL1","MYAREA",2)
+	DisplayStringHead("C0ATHAN",~Bloody 'ell. Grisella's place is still standin'... barely. But I reckon this ain't the time for drinks, eh?~)
+	RealSetGlobalTimer("C0NPCInterjectTimer","MYAREA",2)
+END

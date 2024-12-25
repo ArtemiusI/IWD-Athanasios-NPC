@@ -1,0 +1,10 @@
+IF
+	InParty("C0ATHAN")
+	TriggerOverride("C0ATHAN",See("Statue2"))
+	Global("C0AthanasiosTL1","MYAREA",0)
+	CombatCounter(0)
+THEN
+RESPONSE #100
+	SetGlobal("C0AthanasiosTL1","MYAREA",1)
+	DisplayStringHead("C0ATHAN",~That be Myrkul, Old Lord Skull, hideous as death itself... this foul stench be of unholy origin, so it seems.~)
+END

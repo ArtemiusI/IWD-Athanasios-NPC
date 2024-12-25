@@ -1,0 +1,77 @@
+BACKUP ~AthanasiosNPC/backup~
+AUTHOR ~Artemius_I~
+VERSION ~1.0~
+ALWAYS
+  INCLUDE ~%MOD_FOLDER%/lib/alter_script.tpa~
+  INCLUDE ~%MOD_FOLDER%/lib/functions.tph~
+END
+
+AUTO_TRA ~%MOD_FOLDER%/tra/%s~ //~%~
+LANGUAGE 
+  ~English~ 
+  ~english~
+  ~%MOD_FOLDER%/tra/english/setup.tra~
+		 
+BEGIN ~Athanasios NPC for Icewind Dale: Enhanced Edition~
+  REQUIRE_PREDICATE (GAME_IS ~iwdee~) ~This component must be installed on IWD:EE.~
+COPY ~%MOD_FOLDER%/BAMS~ ~OVERRIDE~
+COPY ~%MOD_FOLDER%/CREATURES~ ~OVERRIDE~
+COPY ~%MOD_FOLDER%/PORTRAITS~ ~OVERRIDE~
+COPY ~%MOD_FOLDER%/ITEMS~ ~OVERRIDE~
+INCLUDE ~%MOD_FOLDER%/lib/athanasios.tpa~
+		 
+BEGIN ~Athanasios NPC: Install Athanasios as a Fighter/Cleric~
+  REQUIRE_COMPONENT ~AthanasiosNPC.tp2~ ~0~ ~The main component must be installed.~
+
+COPY ~%MOD_FOLDER%/creatures/C0ATHFC.cre~ ~override/C0ATHAN.CRE~
+  SAY NAME1 ~Athanasios~
+  SAY NAME2 ~Athanasios~
+  WRITE_ASCII SCRIPT_OVERRIDE ~C0ATHAN~ // override
+  WRITE_ASCII DEATHVAR ~C0ATHAN~ // death variable
+  WRITE_ASCII DIALOG ~C0ATHAN~ // dialogue
+  WRITE_ASCII 0X34 ~C0ATHANM~ #8   //small portrait
+  WRITE_ASCII 0x3c ~C0ATHANL~ #8   //medium portrait
+  SAY INITIAL_MEETING ~Good t'see ya.~ [C0ATH00]
+  SAY BIO ~When asked about his past, ATHANASIOS LEADENFOOT barely manages to speak a few coherent sentences among his rough, slurred ramblings. Hailing from Targos, the second-largest of the Ten Towns, the drunken, slightly aged halfling has served the church of Tempus for the majority of his years, which according to him is the highest life one could ask for: eagerly awaiting the next fight, revelling in the prospect of it being the last, and celebrating each victory, for one lives to fight another day... though in his case, perhaps the latter is taken to an extreme. Despite your doubts, however, his drunkenness appears to be more than matched by his capability in battle... assuming he swings his weapon in the right direction.~
+  SAY MORALE ~~
+  SAY HAPPY ~Well, thanks for that.~ [C0ATH01]
+  SAY UNHAPPY_ANNOYED ~~
+  SAY UNHAPPY_SERIOUS ~~
+  SAY UNHAPPY_BREAKING ~~
+  SAY LEADER ~Get in step. Follow me!~ [C0ATH02]
+  SAY TIRED ~*yawn* I need time t' rest.~ [C0ATH03]
+  SAY BORED ~This is borin'. I have t'find some action!~ [C0ATH04]
+  SAY BATTLE_CRY1 ~Attaaaaack!~ [C0ATH05]
+  SAY BATTLE_CRY2 ~Rrrrrraaagh!~ [C0ATH06]
+  SAY BATTLE_CRY3 ~Rip ya t'shreds!~ [C0ATH07]
+  SAY BATTLE_CRY4 ~Nothin' walks away!~ [C0ATH08]
+  SAY BATTLE_CRY5 ~Bring it 'ere! Try me!~ [C0ATH09]
+  SAY DAMAGE ~Augh!~ [C0ATH10]
+  SAY DYING ~Waaaargh!~ [C0ATH11]
+  SAY HURT ~I'm hurt bad. Close to... dyin'!~ [C0ATH12]
+  SAY AREA_FOREST ~~
+  SAY AREA_CITY ~~
+  SAY AREA_DUNGEON ~~
+  SAY AREA_DAY ~~
+  SAY AREA_NIGHT ~~
+  SAY SELECT_COMMON1 ~Good t'see ya.~ [C0ATH00]
+  SAY SELECT_COMMON2 ~Yeah? What?~ [C0ATH13]
+  SAY SELECT_COMMON3 ~Ha-ha-HAA!~ [C0ATH14]
+  SAY SELECT_COMMON4 ~Gimme some room. Now!~ [C0ATH15]
+  SAY SELECT_COMMON5 ~Ughh, don't feel well.~ [C0ATH16]
+  SAY SELECT_COMMON6 ~Yes, yes.~ [C0ATH17]
+  SAY SELECT_ACTION1 ~I can do that.~ [C0ATH18]
+  SAY SELECT_ACTION2 ~Job's done over 'ere.~ [C0ATH19]
+  SAY SELECT_ACTION3 ~That idea, that's a good one!~ [C0ATH20]
+  SAY SELECT_ACTION4 ~Stop.~ [C0ATH21]
+  SAY SELECT_ACTION5 ~That idea is just plain bad.~ [C0ATH22]
+  SAY SELECT_ACTION6 ~Nuh, can't do it!~ [C0ATH23]
+  SAY SELECT_ACTION7 ~Unless you wanna end this in a pool of yer own blood, BACK OFF!~ [C0ATH24]
+  SAY SELECT_RARE1 ~Over 'ere. Look at this!~ [C0ATH25]
+  SAY SELECT_RARE2 ~To me! Rally 'ere!~ [C0ATH26]
+  SAY CRITICAL_HIT ~Ha-HAAA!~ [C0ATH27]
+  SAY CRITICAL_MISS ~*frustrated rambling*~ [C0ATH28]
+  SAY TARGET_IMMUNE ~Not even a dent! This weapon is useless!~ [C0ATH29]
+  SAY INVENTORY_FULL ~Woah! This pack is too heavy!~ [C0ATH30]
+  SAY SPELL_DISRUPTED ~Aaargh! Blasted spell failure!~ [C0ATH31]
+  SAY HIDDEN_IN_SHADOWS ~Hide, now.~ [C0ATH32]

@@ -1,0 +1,17 @@
+IF
+	Global("C0AthanasiosSpawn","ar1001",0)
+THEN
+RESPONSE #100
+	SetGlobal("C0AthanasiosSpawn","ar1001",1)
+	CreateCreatureImpassable("C0ATHAN",[745.434],SW)
+END
+
+IF
+	InParty("C0ATHAN")
+	TriggerOverride("C0ATHAN",Range("EVERARD",10))
+	Global("C0AthanasiosTL1","MYAREA",0)
+THEN
+RESPONSE #100
+	SetGlobal("C0AthanasiosTL1","MYAREA",1)
+	DisplayStringHead("C0ATHAN",~Don't mind if I keep me distance... I'd rather not stand an' take another o' Everard's lectures.~)
+END

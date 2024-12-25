@@ -1,0 +1,193 @@
+// TALK - First Fight
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0AthanasiosTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0AthanasiosTalkTimer","LOCALS")
+	!See([ENEMY])
+	!CombatCounter(0)
+	OR(2)
+	AreaCheck("AR1200")
+	AreaCheck("AR1201")
+	Global("C0AthanasiosTalkAR1200","GLOBAL",0)
+THEN
+RESPONSE #100
+	SetGlobal("C0AthanasiosTalkAR2000","GLOBAL",1)
+END
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0AthanasiosTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0AthanasiosTalkTimer","LOCALS")
+	!See([ENEMY])
+	!CombatCounter(0)
+	OR(2)
+	AreaCheck("AR1200")
+	AreaCheck("AR1201")
+	Global("C0AthanasiosTalkAR1200","GLOBAL",1)
+THEN
+RESPONSE #100
+	SetInterrupt(FALSE)
+	SetGlobal("C0AthanasiosTalkAR2000","GLOBAL",2)
+	Wait(2)
+	StartDialogNoSet(Player1)
+	SetInterrupt(TRUE)
+END
+// TALK - First Fight
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0AthanasiosTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0AthanasiosTalkTimer","LOCALS")
+	!See([ENEMY])
+	!CombatCounter(0)
+	OR(2)
+	AreaCheck("AR1200")
+	AreaCheck("AR1201")
+	Global("C0AthanasiosTalkAR1200","GLOBAL",0)
+THEN
+RESPONSE #100
+	SetGlobal("C0AthanasiosTalkAR2000","GLOBAL",1)
+END
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0AthanasiosTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0AthanasiosTalkTimer","LOCALS")
+	!See([ENEMY])
+	!CombatCounter(0)
+	OR(2)
+	AreaCheck("AR1200")
+	AreaCheck("AR1201")
+	Global("C0AthanasiosTalkAR1200","GLOBAL",1)
+THEN
+RESPONSE #100
+	SetInterrupt(FALSE)
+	SetGlobal("C0AthanasiosTalkAR2000","GLOBAL",2)
+	Wait(2)
+	StartDialogNoSet(Player1)
+	SetInterrupt(TRUE)
+END
+
+
+// TALK - After Avalanche
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0AthanasiosTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0AthanasiosTalkTimer","LOCALS")
+	!See([ENEMY])
+	CombatCounter(0)
+	AreaCheck("AR2000")
+	Global("Hermit_Exit","GLOBAL",1)
+	Switch("C0AthanasiosTalkAR2000","AR2000")
+THEN
+RESPONSE #0
+	SetGlobal("C0AthanasiosTalkAR2000","AR2000",1)
+	RealSetGlobalTimer("C0AthanasiosTalkTimer","LOCALS",4)
+RESPONSE #1
+	SetGlobal("C0AthanasiosTalkAR2000","AR2000",2)
+	StartDialogueNoSet(Player1)
+END
+
+// TALK - Return to Easthaven
+
+IF
+	InParty(Myself)
+	InMyArea(Player1)
+	!StateCheck(Myself,CD_STATE_NOTVALID)
+	OR(2)
+	Global("C0AthanasiosTalkTimer","LOCALS",0)
+	RealGlobalTimerExpired("C0AthanasiosTalkTimer","LOCALS")
+	!See([ENEMY])
+	CombatCounter(0)
+	AreaCheck("AR1100")
+	NearLocation(Myself,750,713,15)
+	Switch("C0AthanasiosTalkAR1100","AR1100")
+THEN
+RESPONSE #0
+	SetGlobal("C0AthanasiosTalkAR1100","AR1100",1)
+	RealSetGlobalTimer("C0AthanasiosTalkTimer","LOCALS",4)
+RESPONSE #1
+	SetGlobal("C0AthanasiosTalkAR1100","AR1100",2)
+	StartDialogueNoSet(Player1)
+END
+
+// Helm of the Trusted Defender
+
+IF
+	InParty(Myself)
+	CombatCounter(0)
+	HasItemEquiped("HELMDEF",Myself)
+	Global("C0AthanasiosHelmet","GLOBAL",0)
+THEN
+  RESPONSE #100
+	SetInterrupt(FALSE)
+	SetGlobal("C0AthanasiosHelmet","GLOBAL",1)
+	Wait(1)
+	DisplayStringHead(Myself,~This helm fits right an' snug on me ol' noggin, mate.~)
+	SetInterrupt(TRUE)
+END
+
+// Mighty Thrower
+
+IF
+	InParty(Myself)
+	CombatCounter(0)
+	HasItemEquiped("L#HAGLO1",Myself)
+	Global("C0AthanasiosHalflingGloves","GLOBAL",0)
+THEN
+  RESPONSE #100
+	SetInterrupt(FALSE)
+	SetGlobal("C0AthanasiosHalflingGloves","GLOBAL",1)
+	Wait(1)
+	DisplayStringHead(Myself,~Ah, nothin' beats good ol' halfling craft, fit fer a halfling.~)
+	SetInterrupt(TRUE)
+END
+
+// Three White Doves +3
+
+IF
+	InParty(Myself)
+	CombatCounter(0)
+	HasItemEquiped("DOVES",Myself)
+	Global("C0AthanasiosThreeWhiteDoves","GLOBAL",0)
+THEN
+  RESPONSE #100
+	SetInterrupt(FALSE)
+	SetGlobal("C0AthanasiosThreeWhiteDoves","GLOBAL",1)
+	Wait(1)
+	DisplayStringHead(Myself,~The wakin' dead will wish they had kept sleepin'.~)
+	SetInterrupt(TRUE)
+END
+
+// Lord Toadeus
+
+IF
+	InParty(Myself)
+	CombatCounter(0)
+	HasItemEquiped("L#ITOA1",Myself)
+	Global("C0AthanasiosLordToadeus","GLOBAL",0)
+THEN
+  RESPONSE #100
+	SetInterrupt(FALSE)
+	SetGlobal("C0AthanasiosLordToadeus","GLOBAL",1)
+	Wait(1)
+	DisplayStringHead(Myself,~This your idea of a prank, mate? I ain't that drunk to confuse a toad fer a weapon, ye know.~)
+	SetInterrupt(TRUE)
+END
