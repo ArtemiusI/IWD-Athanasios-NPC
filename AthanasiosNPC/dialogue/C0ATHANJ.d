@@ -324,7 +324,7 @@ END
  ++ ~May I ask you some questions?~ + pid-questions
  ++ ~I need nothing at the moment.~ EXIT
  
-CHAIN C0GULDJ pid-questions
+CHAIN C0ATHANJ pid-questions
 ~Yeah, why not. I'll lend ye an ear, mate.~
 END
  + ~Global("C0AthanPIDOrigins","GLOBAL",0)~ + ~Tell me about your history.~ DO ~SetGlobal("C0AthanPIDOrigins","GLOBAL",1)~ + pid-origins
