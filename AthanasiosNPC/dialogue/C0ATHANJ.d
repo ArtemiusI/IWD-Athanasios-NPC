@@ -69,7 +69,7 @@ Global("Know_Everard","GLOBAL",0)~ EXTERN DEVERARD 22
 IF ~GlobalGT("Know_Balance","GLOBAL",0)
 GlobalGT("Know_Everard","GLOBAL",0)~ EXTERN DEVERARD 23
 
-CHAIN IF WEIGHT #-1 ~!GlobalGT("Know_Balance","GLOBAL",0) InParty("C0ATHAN")~ THEN DEVERARD ATHANASIOS-EVERARD
+CHAIN IF WEIGHT #-1 ~!GlobalGT("Know_Balance","GLOBAL",0) IsGabber("C0ATHAN")~ THEN DEVERARD ATHANASIOS-EVERARD
 ~Athanasios.~ [C0BLANK]
 == C0ATHANJ ~Everard.~
 END
