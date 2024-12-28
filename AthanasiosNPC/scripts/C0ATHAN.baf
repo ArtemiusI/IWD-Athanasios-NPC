@@ -25,7 +25,7 @@ IF
 	Global("C0AthanasiosTalkTimer","LOCALS",0)
 	RealGlobalTimerExpired("C0AthanasiosTalkTimer","LOCALS")
 	!See([ENEMY])
-	!CombatCounter(0)
+	CombatCounter(0)
 	OR(2)
 	AreaCheck("AR1200")
 	AreaCheck("AR1201")
